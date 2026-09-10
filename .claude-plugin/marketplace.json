@@ -1,0 +1,11 @@
+{
+  "name": "local-harness",
+  "owner": { "name": "user" },
+  "plugins": [
+    {
+      "name": "dev-harness",
+      "source": "./plugins/dev-harness",
+      "description": "개발 하네스 공통 규약 — .bak 차단, py_compile 자동 검사, 커밋 전 자가 검증(verify), 세션 기록 저장, 새 프로젝트 CLAUDE.md 골격 생성"
+    }
+  ]
+}

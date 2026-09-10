@@ -1,0 +1,42 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"${CLAUDE_PLUGIN_ROOT}/scripts/claude_hook.py\" bak",
+            "timeout": 15,
+            "statusMessage": ".bak 생성 규약 검사 중..."
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"${CLAUDE_PLUGIN_ROOT}/scripts/claude_hook.py\" pycompile",
+            "timeout": 30,
+            "statusMessage": "py_compile 문법 검사 중..."
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"${CLAUDE_PLUGIN_ROOT}/scripts/export_session.py\" --hook --commit",
+            "timeout": 60,
+            "statusMessage": "대화 기록 저장 중..."
+          }
+        ]
+      }
+    ]
+  }
+}

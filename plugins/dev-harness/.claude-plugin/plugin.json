@@ -1,0 +1,6 @@
+{
+  "name": "dev-harness",
+  "version": "1.0.0",
+  "description": "개발 하네스 공통 규약 — .bak 차단, py_compile 자동 검사, 커밋 전 자가 검증, 세션 기록 저장, 프로젝트 부트스트랩",
+  "author": { "name": "user" }
+}
